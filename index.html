@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azul Embajador | Tienda de hinchas de Millonarios</title>
+  <meta name="description" content="Camisetas, ropa casual, accesorios y coleccionables para hinchas de Millonarios. Personaliza tu camiseta con nombre y número.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#catalogo">Ir al catálogo</a>
+
+  <!-- Aviso superior -->
+  <div class="topbar">
+    <p>Envío gratis a toda Colombia en compras desde <strong>$250.000</strong></p>
+  </div>
+
+  <!-- Encabezado -->
+  <header class="header" id="inicio">
+    <div class="header__inner container">
+      <a href="#inicio" class="brand" aria-label="Azul Embajador, ir al inicio">
+        <svg class="brand__star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.6l-6.3 3.6 1.5-7.1L1.8 9.2 9 8.4z"/></svg>
+        <span class="brand__name">Azul Embajador</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Categorías">
+        <ul class="nav__list">
+          <li><a href="#catalogo" data-cat-link="camisetas">Camisetas</a></li>
+          <li><a href="#catalogo" data-cat-link="ropa">Ropa casual</a></li>
+          <li><a href="#catalogo" data-cat-link="accesorios">Accesorios</a></li>
+          <li><a href="#catalogo" data-cat-link="ninos">Niños y coleccionables</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Abrir carrito, 0 productos" aria-controls="cartDrawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+          <span class="cart-btn__label">Carrito</span>
+          <span class="cart-btn__count" id="cartCount">0</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-controls="nav" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__inner container">
+        <div class="hero__text">
+          <p class="hero__kicker">Tienda de hinchas en Bogotá</p>
+          <h1 class="hero__title">El azul que se lleva en la tribuna</h1>
+          <p class="hero__lead">Camisetas, ropa y accesorios para hinchas de Millonarios. Ponle tu nombre y tu número a la camiseta antes de pagar.</p>
+          <div class="hero__cta">
+            <a href="#catalogo" class="btn btn--primary" data-cat-link="camisetas">Ver camisetas</a>
+            <a href="#catalogo" class="btn btn--ghost" data-cat-link="todos">Ver todo el catálogo</a>
+          </div>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__panel"></div>
+          <div class="hero__jersey" id="heroJersey"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="perks" aria-label="Beneficios de compra">
+      <ul class="perks__list container">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>
+          <div><strong>Envíos nacionales</strong><span>De 2 a 5 días hábiles</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
+          <div><strong>Cambios de talla</strong><span>Hasta 30 días después de recibir</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.8-7 9-4-1.2-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          <div><strong>Pago seguro</strong><span>Tarjeta, PSE, Nequi o contra entrega</span></div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Catálogo -->
+    <section class="catalog" id="catalogo" aria-labelledby="catalogTitle">
+      <div class="container">
+        <div class="catalog__head">
+          <h2 class="section-title" id="catalogTitle">Catálogo</h2>
+          <div class="catalog__tools">
+            <label class="search">
+              <span class="sr-only">Buscar productos</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+              <input type="search" id="searchInput" placeholder="Buscar camiseta, gorra, termo…" autocomplete="off">
+            </label>
+            <label class="sort">
+              <span class="sr-only">Ordenar productos</span>
+              <select id="sortSelect">
+                <option value="destacados">Destacados</option>
+                <option value="menor">Menor precio</option>
+                <option value="mayor">Mayor precio</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="chips" role="tablist" aria-label="Filtrar por categoría" id="chips">
+          <button class="chip is-active" role="tab" aria-selected="true" data-cat="todos">Todo</button>
+          <button class="chip" role="tab" aria-selected="false" data-cat="camisetas">Camisetas</button>
+          <button class="chip" role="tab" aria-selected="false" data-cat="ropa">Ropa casual</button>
+          <button class="chip" role="tab" aria-selected="false" data-cat="accesorios">Accesorios</button>
+          <button class="chip" role="tab" aria-selected="false" data-cat="ninos">Niños y coleccionables</button>
+        </div>
+
+        <p class="catalog__count" id="resultCount" aria-live="polite"></p>
+        <div class="grid" id="productGrid"></div>
+        <div class="empty" id="emptyState" hidden>
+          <p>No encontramos productos con esa búsqueda.</p>
+          <button class="btn btn--ghost" id="clearSearch">Ver todo el catálogo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personalización -->
+    <section class="custom" aria-labelledby="customTitle">
+      <div class="custom__inner container">
+        <div class="custom__jersey" id="customJersey" aria-hidden="true"></div>
+        <div class="custom__text">
+          <h2 class="section-title section-title--light" id="customTitle">Tu nombre en la espalda</h2>
+          <p>Todas las camisetas se pueden personalizar con nombre (hasta 12 letras) y número del 1 al 99. Ves cómo queda antes de agregarla al carrito. La personalización cuesta $30.000.</p>
+          <a href="#catalogo" class="btn btn--light" data-cat-link="camisetas">Personalizar una camiseta</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="footer__inner container">
+      <div class="footer__brand">
+        <span class="brand__name">Azul Embajador</span>
+        <p>Tienda de hinchas para hinchas.</p>
+      </div>
+      <div class="footer__col">
+        <h3>Ayuda</h3>
+        <ul>
+          <li><a href="#catalogo">Guía de tallas</a></li>
+          <li><a href="#catalogo">Envíos y entregas</a></li>
+          <li><a href="#catalogo">Cambios y devoluciones</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3>Contacto</h3>
+        <ul>
+          <li>Bogotá, Colombia</li>
+          <li><a href="mailto:hola@azulembajador.co">hola@azulembajador.co</a></li>
+          <li>Lunes a sábado, 8:00 a. m. a 6:00 p. m.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer__legal container">Proyecto de portafolio sin afiliación oficial con Millonarios Fútbol Club. Los productos, precios y pagos son de demostración.</p>
+  </footer>
+
+  <!-- Capa oscura para modales y carrito -->
+  <div class="overlay" id="overlay" hidden></div>
+
+  <!-- Carrito lateral -->
+  <aside class="drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" hidden>
+    <div class="drawer__head">
+      <h2 id="cartTitle">Tu carrito</h2>
+      <button class="icon-btn" data-close aria-label="Cerrar carrito">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="shipping-meter" id="shippingMeter">
+      <p id="shippingText"></p>
+      <div class="shipping-meter__bar"><span id="shippingBar"></span></div>
+    </div>
+    <ul class="cart-list" id="cartList"></ul>
+    <div class="cart-empty" id="cartEmpty">
+      <p>Tu carrito está vacío.</p>
+      <button class="btn btn--primary" data-close data-goto-catalog>Ir al catálogo</button>
+    </div>
+    <div class="drawer__foot" id="cartFoot">
+      <dl class="totals">
+        <div><dt>Subtotal</dt><dd id="cartSubtotal">$0</dd></div>
+        <div><dt>Envío</dt><dd id="cartShipping">$0</dd></div>
+        <div class="totals__total"><dt>Total</dt><dd id="cartTotal">$0</dd></div>
+      </dl>
+      <button class="btn btn--primary btn--block" id="checkoutBtn">Ir a pagar</button>
+    </div>
+  </aside>
+
+  <!-- Modal de producto -->
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="pmName" hidden>
+    <div class="modal__box modal__box--product">
+      <button class="icon-btn modal__close" data-close aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="pm">
+        <div class="pm__media">
+          <div class="pm__img" id="pmImg"></div>
+          <div class="pm__views" id="pmViews" hidden>
+            <button class="pm__view is-active" data-view="front" aria-pressed="true">Frente</button>
+            <button class="pm__view" data-view="back" aria-pressed="false">Espalda</button>
+          </div>
+        </div>
+        <div class="pm__info">
+          <p class="pm__cat" id="pmCat"></p>
+          <h2 class="pm__name" id="pmName"></h2>
+          <p class="pm__price" id="pmPrice"></p>
+          <p class="pm__desc" id="pmDesc"></p>
+
+          <fieldset class="field-group" id="pmSizeGroup">
+            <legend>Talla</legend>
+            <div class="sizes" id="pmSizes"></div>
+            <p class="field-error" id="pmSizeError" role="alert"></p>
+          </fieldset>
+
+          <div class="customize" id="pmCustom" hidden>
+            <label class="switch">
+              <input type="checkbox" id="pmCustomToggle">
+              <span>Personalizar con nombre y número (+$30.000)</span>
+            </label>
+            <div class="customize__fields" id="pmCustomFields" hidden>
+              <label class="field">
+                <span>Nombre</span>
+                <input type="text" id="pmCustomName" maxlength="12" placeholder="PARDO" autocomplete="off">
+              </label>
+              <label class="field field--num">
+                <span>Número</span>
+                <input type="number" id="pmCustomNumber" min="1" max="99" placeholder="10">
+              </label>
+            </div>
+            <p class="field-error" id="pmCustomError" role="alert"></p>
+          </div>
+
+          <div class="pm__buy">
+            <div class="qty" aria-label="Cantidad">
+              <button type="button" data-qty="-1" aria-label="Quitar uno">−</button>
+              <output id="pmQty">1</output>
+              <button type="button" data-qty="1" aria-label="Agregar uno">+</button>
+            </div>
+            <button class="btn btn--primary btn--grow" id="pmAdd">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de pago (simulado) -->
+  <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="coTitle" hidden>
+    <div class="modal__box modal__box--checkout">
+      <button class="icon-btn modal__close" data-close aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <form class="checkout" id="checkoutForm" novalidate>
+        <h2 id="coTitle">Finalizar compra</h2>
+        <p class="demo-note">Pago de demostración: no se realiza ningún cobro.</p>
+
+        <div class="checkout__cols">
+          <div class="checkout__form">
+            <fieldset>
+              <legend><span class="step">1</span> Tus datos</legend>
+              <label class="field"><span>Nombre completo</span><input type="text" name="nombre" autocomplete="name" required></label>
+              <div class="field-row">
+                <label class="field"><span>Correo electrónico</span><input type="email" name="correo" autocomplete="email" required></label>
+                <label class="field"><span>Celular</span><input type="tel" name="celular" inputmode="numeric" autocomplete="tel" placeholder="3001234567" required></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend><span class="step">2</span> Dirección de envío</legend>
+              <label class="field"><span>Dirección</span><input type="text" name="direccion" autocomplete="street-address" placeholder="Calle 57 # 21-80" required></label>
+              <div class="field-row">
+                <label class="field"><span>Ciudad</span><input type="text" name="ciudad" autocomplete="address-level2" required></label>
+                <label class="field">
+                  <span>Departamento</span>
+                  <select name="departamento" id="deptSelect" required>
+                    <option value="">Selecciona</option>
+                  </select>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend><span class="step">3</span> Método de pago</legend>
+              <div class="pay-options">
+                <label class="pay"><input type="radio" name="pago" value="Tarjeta de crédito o débito" required><span>Tarjeta de crédito o débito</span></label>
+                <label class="pay"><input type="radio" name="pago" value="PSE"><span>PSE</span></label>
+                <label class="pay"><input type="radio" name="pago" value="Nequi"><span>Nequi</span></label>
+                <label class="pay"><input type="radio" name="pago" value="Contra entrega"><span>Contra entrega</span></label>
+              </div>
+            </fieldset>
+            <p class="field-error" id="checkoutError" role="alert"></p>
+          </div>
+
+          <aside class="summary" aria-label="Resumen del pedido">
+            <h3>Tu pedido</h3>
+            <ul class="summary__list" id="summaryList"></ul>
+            <dl class="totals">
+              <div><dt>Subtotal</dt><dd id="sumSubtotal"></dd></div>
+              <div><dt>Envío</dt><dd id="sumShipping"></dd></div>
+              <div class="totals__total"><dt>Total</dt><dd id="sumTotal"></dd></div>
+            </dl>
+            <button type="submit" class="btn btn--primary btn--block" id="payBtn">Pagar</button>
+          </aside>
+        </div>
+      </form>
+
+      <div class="success" id="successView" hidden>
+        <svg class="success__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6"/></svg>
+        <h2>Pedido confirmado</h2>
+        <p id="successText"></p>
+        <p class="success__order">Número de pedido: <strong id="orderNumber"></strong></p>
+        <button class="btn btn--primary" data-close>Seguir comprando</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notificación -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
